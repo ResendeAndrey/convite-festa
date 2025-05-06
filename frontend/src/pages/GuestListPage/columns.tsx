@@ -18,7 +18,7 @@ export const columns: ColumnDef<GuestData>[] = [
     accessorKey: "confirmed",
     header: "Confirmado",
     cell: ({ row }) => (row.original.confirmed ? "Sim" : "Não"),
-    filterFn: (row, id, value) => {
+    filterFn: (row, value) => {
       if (value === "Sim") return row.original.confirmed === true;
       if (value === "Não") return row.original.confirmed === false;
       return true;
