@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Guest" ADD COLUMN     "withoutName" BOOLEAN NOT NULL DEFAULT true,
+ALTER COLUMN "name" DROP NOT NULL;
