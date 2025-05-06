@@ -89,13 +89,15 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
           <div className="flex justify-center mt-4">
             <AddToCalendarButton
               name={eventDetails.title}
+              options={['Apple', 'Google', 'Yahoo']}
               location={eventDetails.location}
-              startDate={'2025-05-31'}
-              options="'Apple', 'Google', 'Yahoo'"
+              startDate="2025-05-31"
+              endDate="2025-05-31"
+              startTime="10:15"
+              endTime="18:30"
               timeZone="America/Sao_Paulo"
-              startTime="12:00"
-              label="Adicionar ao calendário"
-            />
+              label="Adicionar ao calendário"
+            ></AddToCalendarButton>
 
 
           </div>
