@@ -8,6 +8,13 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
-  }
+    },
+    "module": "ESNext", // Ou "ES6"
+    "target": "ESNext", // Ou "ES6"
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "outDir": "./build"
+  },
+  "include": ["src"]
 }
