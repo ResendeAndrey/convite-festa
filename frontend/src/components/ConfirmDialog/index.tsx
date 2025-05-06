@@ -90,8 +90,8 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
             <AddToCalendarButton
               name={eventDetails.title}
               location={eventDetails.location}
-              startDate={'31/05/2025'}
-              options={['Apple', 'Google', 'Yahoo', 'iCal']}
+              startDate={'2025-05-31'}
+              options="'Apple', 'Google', 'Yahoo'"
               timeZone="America/Sao_Paulo"
               startTime="12:00"
               label="Adicionar ao calendário"
