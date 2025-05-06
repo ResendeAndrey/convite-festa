@@ -1,6 +1,7 @@
 
 import { ConfirmPresenceModal } from "@/components/ConfirmDialog";
 import { GuestConfirmationTable } from "@/components/guestConfirmationTable";
+import LoadingSpinner from "@/components/Loader";
 import { confirmFamily, getFamilyById } from "@/services/familyService";
 
 import { useCallback, useEffect, useState } from "react";
@@ -61,10 +62,12 @@ export function ConfirmPage() {
     <div className="max-w-2xl w-full mx-auto mt-10 px-4 sm:px-6 py-6 bg-white rounded-xl shadow-md">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">Confirmação de Presença</h1>
 
-      {guests && (
+      {guests ? (
         <div className="overflow-x-auto">
           <GuestConfirmationTable guests={guests} onConfirm={handleConfirm} loading={loading} reloadGuests={fetchGuests} />
         </div>
+      ) : (
+        <LoadingSpinner />
       )}
 
       {openModal && (

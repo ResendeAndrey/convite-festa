@@ -3,6 +3,7 @@
 import { DataTable } from '@/components/DataTable';
 import FamilyFilter from '@/components/FamilyFilter';
 import InviteModal from '@/components/inviteModal';
+import LoadingSpinner from '@/components/Loader';
 import { SearchInput } from '@/components/SearchInput';
 import SidebarLayout from '@/components/sidebarLayout';
 import { useFamilyContext } from '@/contexts/familyContext';
@@ -89,9 +90,7 @@ export default function FamilyListPage() {
           </div>
 
           {loading || !families?.data ? (
-            <div className="flex justify-center items-center h-32">
-              <div className="loader" />
-            </div>
+            <LoadingSpinner />
           ) : (
             <DataTable
               columns={columns(handleOpenInviteModal)}

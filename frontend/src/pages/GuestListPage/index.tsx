@@ -6,6 +6,7 @@ import FamilyFilter from '@/components/FamilyFilter';
 import { SearchInput } from '@/components/SearchInput';
 
 import { Button } from '@/components/Button';
+import LoadingSpinner from '@/components/Loader';
 import SidebarLayout from '@/components/sidebarLayout';
 import { useFamilyContext } from '@/contexts/familyContext';
 import { fetchGuests } from '@/services/guestService';
@@ -105,9 +106,7 @@ export default function GuestListPage() {
           </div>
 
           {loading || !guests.data ? (
-            <div className="flex justify-center items-center h-32">
-              <div className="loader" />
-            </div>
+            <LoadingSpinner />
           ) : (
             <DataTable
               columns={columns}
