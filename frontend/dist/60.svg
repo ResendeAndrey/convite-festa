@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#fff8dc" stroke="goldenrod" stroke-width="4"/>
+  <text x="50%" y="58%" text-anchor="middle" font-size="48" font-family="Georgia, serif"
+        fill="gold" stroke="goldenrod" stroke-width="1" dominant-baseline="middle">
+    60
+  </text>
+</svg>

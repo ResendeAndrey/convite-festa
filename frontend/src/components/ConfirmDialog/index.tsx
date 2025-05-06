@@ -22,7 +22,7 @@ interface ConfirmPresenceModalProps {
 }
 
 export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPresenceModalProps) {
-  const { eventDetails, calendarUrl } = useEventDetails();
+  const { eventDetails } = useEventDetails();
 
 
 
