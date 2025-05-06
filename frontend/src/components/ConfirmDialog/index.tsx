@@ -20,7 +20,7 @@ interface ConfirmPresenceModalProps {
 }
 
 export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPresenceModalProps) {
-  const { eventDetails, calendarContent } = useEventDetails();
+  const { eventDetails, calendarUrl } = useEventDetails();
 
 
 
@@ -55,30 +55,36 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
           <div className="text-zinc-700 text-sm text-left mt-6 space-y-1">
             <p><strong>📅 Data:</strong> 31 de Maio de 2025</p>
             <p><strong>🕛 Horário:</strong> 12:00 horas</p>
-            <p>
+            <p className="flex flex-col gap-1">
               <strong>📍 Endereço: </strong>
-              <a
-                href={`https://maps.google.com/?q=${eventDetails.location}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 underline hover:text-blue-800"
-              >
-                {eventDetails.location}
-              </a>
+              <span className="text-zinc-700">{eventDetails.location}</span>
+              <div className="flex gap-4 mt-1">
+                <a
+                  href={`https://maps.google.com/?q=${encodeURIComponent(eventDetails.location)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline hover:text-blue-800 text-sm"
+                >
+                  Abrir no Google Maps
+                </a>
+                <a
+                  href={`https://waze.com/ul?q=${encodeURIComponent(eventDetails.location)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline hover:text-blue-800 text-sm"
+                >
+                  Abrir no Waze
+                </a>
+              </div>
             </p>
+
             <p><strong>👔 Traje:</strong> Sport fino</p>
             <p><strong>🎁 Presente:</strong> 1kg de alimento não perecível</p>
           </div>
 
 
           <div className="flex justify-center mt-4">
-            <a
-              href={calendarContent}
-              download="evento.ics"
-              className="bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600 text-sm"
-            >
-              Adicionar à Agenda 📅
-            </a>
+            <a href={calendarUrl} download="evento.ics">Adicionar ao Calendário 📅</a>
           </div>
 
           <div className="flex justify-center mt-6">

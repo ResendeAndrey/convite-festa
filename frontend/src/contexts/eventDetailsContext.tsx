@@ -33,16 +33,17 @@ export const EventDetailsProvider: React.FC<{ children: React.ReactNode }> = ({
   const calendarContent = `BEGIN:VCALENDAR
   VERSION:2.0
   BEGIN:VEVENT
-  SUMMARY:${eventDetails.title}
-  DESCRIPTION:${eventDetails.description}
-  LOCATION:${eventDetails.location}
+  SUMMARY:Festa Maria Jose e Tunico
   DTSTART:${eventDetails.startDate}
   DTEND:${eventDetails.endDate}
+  LOCATION:${eventDetails.location}
+  DESCRIPTION:Compareça ao evento especial!
   END:VEVENT
   END:VCALENDAR`;
 
-  const calendarBlob = new Blob([calendarContent], { type: "text/calendar" });
-  const calendarUrl = URL.createObjectURL(calendarBlob);
+  const blob = new Blob([calendarContent], { type: "text/calendar" });
+  const calendarUrl = URL.createObjectURL(blob);
+
 
 
   return (
