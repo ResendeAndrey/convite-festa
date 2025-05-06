@@ -20,7 +20,7 @@ interface ConfirmPresenceModalProps {
 }
 
 export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPresenceModalProps) {
-  const { eventDetails, calendarUrl } = useEventDetails();
+  const { eventDetails, calendarContent } = useEventDetails();
 
 
 
@@ -33,6 +33,18 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
 👔 Traje: Sport fino
 🎁 Presente: 1kg de alimento não perecível
 `;
+
+  const downloadCalendar = () => {
+    const blob = new Blob([calendarContent], { type: "text/calendar;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "evento.ics";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url); // limpa memória
+  };
 
   return (
     <Dialog open={onOpen} onOpenChange={onClose}>
@@ -84,7 +96,13 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
 
 
           <div className="flex justify-center mt-4">
-            <a href={calendarUrl} download="evento.ics">Adicionar ao Calendário 📅</a>
+            <button
+              onClick={downloadCalendar}
+              className="bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600 text-sm"
+            >
+              Adicionar à Agenda 📅
+            </button>
+
           </div>
 
           <div className="flex justify-center mt-6">

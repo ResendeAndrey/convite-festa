@@ -6,6 +6,7 @@ import InviteModal from '@/components/inviteModal';
 import LoadingSpinner from '@/components/Loader';
 import { SearchInput } from '@/components/SearchInput';
 import SidebarLayout from '@/components/sidebarLayout';
+import { useEventDetails } from '@/contexts/eventDetailsContext';
 import { useFamilyContext } from '@/contexts/familyContext';
 import { useEffect, useState } from 'react';
 import { columns } from './columns';
@@ -17,6 +18,7 @@ import { FamilyListFilterProps } from './types';
 
 export default function FamilyListPage() {
   const { families, getAllFamilies, loading } = useFamilyContext();
+  const { eventDetails } = useEventDetails()
   const [openModal, setOpenModal] = useState(false);
   const [selectedFamily, setSelectedFamily] = useState<FamilyData | undefined>();
 
@@ -52,7 +54,7 @@ export default function FamilyListPage() {
     ${import.meta.env.VITE_APP_URL}/families/${data.familyId}/confirmation
 
     *Endereço:*
-    [R. Nossa Sra. do Rosário, 1599 - Espraiado, Pedro Leopoldo - MG](https://maps.google.com/?q=R.+Nossa+Sra.+do+Ros%C3%A1rio,+1599+-+Espraiado,+Pedro+Leopoldo+-+MG)
+    [${eventDetails.location}](https://waze.com/ul?q=${encodeURIComponent(eventDetails.location)})
 
     *Data:* 31/05/2025
     *Horário:* 12h00
