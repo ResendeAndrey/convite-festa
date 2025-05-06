@@ -25,6 +25,8 @@
     "@types/react-modal": "^3.16.3",
     "@types/react-router-dom": "^5.3.3",
     "@types/react-table": "^7.7.20",
+    "add-to-calendar-button": "^2.8.9",
+    "add-to-calendar-button-react": "^2.8.9",
     "axios": "^1.8.4",
     "clsx": "^2.1.1",
     "lucide-react": "^0.501.0",
