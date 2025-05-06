@@ -11,6 +11,7 @@ export interface EventDetails {
 export interface EventDetailsContextType {
   eventDetails: EventDetails;
   calendarUrl: string;
+  calendarContent: string;
 }
 
 
@@ -45,7 +46,7 @@ export const EventDetailsProvider: React.FC<{ children: React.ReactNode }> = ({
 
 
   return (
-    <EventDetailsContext.Provider value={{ eventDetails, calendarUrl }}>
+    <EventDetailsContext.Provider value={{ eventDetails, calendarUrl, calendarContent }}>
       {children}
     </EventDetailsContext.Provider>
   );

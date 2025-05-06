@@ -20,7 +20,7 @@ interface ConfirmPresenceModalProps {
 }
 
 export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPresenceModalProps) {
-  const { eventDetails, calendarUrl } = useEventDetails();
+  const { eventDetails, calendarContent } = useEventDetails();
 
 
 
@@ -36,7 +36,7 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
 
   return (
     <Dialog open={onOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-sm p-6 rounded-2xl shadow-lg bg-white">
+      <DialogContent className="max-w-sm p-6 rounded-2xl shadow-lg bg-white max-h-[90vh] ">
         <DialogHeader className="flex flex-col items-center gap-2">
           <CheckCircle2 className="text-green-500 w-12 h-12" />
           <DialogTitle className="text-center text-xl font-semibold text-zinc-800">
@@ -73,7 +73,7 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
 
           <div className="flex justify-center mt-4">
             <a
-              href={calendarUrl}
+              href={calendarContent}
               download="evento.ics"
               className="bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600 text-sm"
             >

@@ -75,6 +75,7 @@ export function ConfirmPage() {
           guestName={guests?.filter((guest) => guest.confirmed).map((guest) => guest.name) as string[] || []}
           onOpen={openModal}
           onClose={() => setOpenModal(false)}
+
         />
       )}
     </div>
