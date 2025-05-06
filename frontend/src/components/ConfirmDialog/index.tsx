@@ -26,7 +26,7 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
 
 
   const qrCodeData = `
-🎉 70 anos de casado Maria José e Tunico
+🎉 60 anos de casado Maria José e Tunico
 📍 Endereço: ${eventDetails.location}
 📅 Data: 31/05/2025
 🕛 Horário: 12h00

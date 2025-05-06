@@ -45,7 +45,7 @@ export default function FamilyListPage() {
 
     const message = `*Olá ${data.name}!* 🎉
 
-    Você está convidado para a comemoração de *70 anos de casados* de *Maria José e Tunico*!
+    Você está convidado para a comemoração de *60 anos de casados* de *Maria José e Tunico*!
 
     *Confirme sua presença:*
     ${import.meta.env.VITE_APP_URL}/families/${data.familyId}/confirmation

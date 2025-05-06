@@ -22,7 +22,7 @@ export const EventDetailsProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const eventDetails = {
-    title: "70 anos de casamento de Maria José e Tunico",
+    title: "60 anos de casamento de Maria José e Tunico",
     description: "Comemoração especial com amigos e família.",
     location: "R. Nossa Sra. do Rosário, 1599 - Espraiado, Pedro Leopoldo - MG",
     startDate: "20250531T120000",
