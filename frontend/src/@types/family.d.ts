@@ -13,6 +13,7 @@ interface FamilyData {
   id?: string;
   guests?: GuestData[];
   confirmedGuests: number;
+  inviteSent: boolean;
 }
 
 interface InviteData {

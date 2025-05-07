@@ -6,6 +6,7 @@ export interface EventDetails {
   location: string;
   startDate: string;
   endDate: string;
+  gift_description: string;
 }
 
 export interface EventDetailsContextType {
@@ -25,9 +26,10 @@ export const EventDetailsProvider: React.FC<{ children: React.ReactNode }> = ({
   const eventDetails = {
     title: "60 anos de casamento de Maria José e Tunico",
     description: "Comemoração especial com amigos e família.",
-    location: "R. Nossa Sra. do Rosário, 1599 - Espraiado, Pedro Leopoldo - MG",
+    location: "R. Nossa Sra. do Rosário, 1599 - Espraiado, Pedro Leopoldo - MG" + " (Vera Cruz de Minas)",
     startDate: "20250531T120000",
     endDate: "20250531T160000",
+    gift_description: "Sua presença é o nosso maior presente! Caso deseje presentear, pedimos, por gentileza, 2 kg de alimentos não perecíveis, que serão destinados a uma causa solidária"
   };
 
   const calendarContent = `BEGIN:VCALENDAR

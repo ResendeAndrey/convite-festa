@@ -22,3 +22,8 @@ export const getFamilyById = async (familyId: string) => {
   const response = await api.get<FamilyData>(`/families/${familyId}`);
   return response;
 };
+
+export const sentInvite = async (familyId: string) => {
+  const response = await api.patch(`/families/${familyId}/invite`);
+  return response;
+};

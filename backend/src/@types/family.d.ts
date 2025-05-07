@@ -12,4 +12,5 @@ interface FamilyData {
   totalGuests: number;
   id?: string;
   guests?: GuestData[];
+  inviteSent: boolean;
 }

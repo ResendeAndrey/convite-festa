@@ -8,7 +8,8 @@ import { SearchInput } from '@/components/SearchInput';
 import SidebarLayout from '@/components/sidebarLayout';
 import { useEventDetails } from '@/contexts/eventDetailsContext';
 import { useFamilyContext } from '@/contexts/familyContext';
-import { useEffect, useState } from 'react';
+import { sentInvite } from '@/services/familyService';
+import { useCallback, useEffect, useState } from 'react';
 import { columns } from './columns';
 import { FamilyListFilterProps } from './types';
 
@@ -39,14 +40,19 @@ export default function FamilyListPage() {
     }));
   };
 
-  const handleSearch = (search: string | undefined) => {
+  const handleSearch = useCallback((search: string | undefined) => {
+    if (search !== '' && !search) setFilters(prev => ({ ...prev, search: undefined }));
     setFilters(prev => ({ ...prev, search }));
-  };
+  }, []);
 
-  const handleSendInvite = (data: InviteData) => {
+  const renderFamilyName = () => {
+    return selectedFamily?.guests?.map((guest) => guest.name).join(', ')
+  }
+
+  const handleSendInvite = async (data: InviteData) => {
 
 
-    const message = `*Olá ${data.name}!* 🎉
+    const message = `*Olá, ${renderFamilyName()}!* 🎉
 
     Você está convidado para a comemoração de *60 anos de casados* de *Maria José e Tunico*!
 
@@ -54,12 +60,13 @@ export default function FamilyListPage() {
     ${import.meta.env.VITE_APP_URL}/families/${data.familyId}/confirmation
 
     *Endereço:*
-    [${eventDetails.location}](https://waze.com/ul?q=${encodeURIComponent(eventDetails.location)})
+    [${eventDetails.location}](https://waze.com/ul?q=${encodeURIComponent(eventDetails.location)})  (Vera Cruz de Minas)
 
     *Data:* 31/05/2025
     *Horário:* 12h00
-    *Traje:* Sport fino
-    *Presente:* 1kg de alimento não perecível
+    *Traje:* Esporte fino
+
+    *${eventDetails.gift_description}*
 
     *Adicione ao seu calendário:*
     Acesse o link da confirmação acima e baixe o evento na página.
@@ -70,12 +77,17 @@ export default function FamilyListPage() {
 
     const encodeMessage = encodeURIComponent(message);
     const url = `https://wa.me/${data.phone}?text=${encodeMessage}`;
+    await sentInvite(selectedFamily?.id as string).then(() => {
+      getAllFamilies(filters);
+    });
+
     window.open(url, '_blank');
   }
 
   const handleOpenInviteModal = (family: FamilyData) => {
     setSelectedFamily(family);
     setOpenModal(true);
+
   };
 
   return (

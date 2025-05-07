@@ -31,8 +31,11 @@ const InviteModal = (
     if (selected) {
       onClose();
       handleSubmit({ name: selected.name || '', phone: selected.phone, familyId: family.id as string });
+
     }
   };
+
+
 
   return (
     <div>
@@ -53,16 +56,18 @@ const InviteModal = (
               <select
                 id="guestName"
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
-                value={selected.name}
+                value={selected.id}
                 onChange={handleNameChange}
               >
                 <option value="">Selecione o nome</option>
-                {family.guests && family?.guests.map((guest) => (
-                  <option key={guest.name} value={guest.id}>
+                {family.guests && family.guests.map((guest) => (
+                  <option key={guest.id} value={guest.id}>
                     {guest.name || "Nome não informado"}
                   </option>
                 ))}
               </select>
+
+
             </div>
 
             <div className="mb-4">
@@ -96,8 +101,9 @@ const InviteModal = (
             </div>
           </div>
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 };
 

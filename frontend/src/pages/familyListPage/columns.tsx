@@ -23,6 +23,11 @@ export const columns = (handleOpenInviteModal: (family: FamilyData) => void) => 
       cell: ({ row }) => row.original.confirmedGuests,
     },
     {
+      accessorKey: "inviteSent",
+      header: "Convite Enviado",
+      cell: ({ row }) => row.original.inviteSent ? "Sim" : "Não",
+    },
+    {
       accessorKey: "actions",
       header: "Ações",
       cell: ({ row }) => <Button className="w-50 bg-gray-100 text-black font-semibold hover:bg-gray-200 rounded-md shadow" onClick={() => handleOpenInviteModal(row.original)}> Enviar Convite </Button>,

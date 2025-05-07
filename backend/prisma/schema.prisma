@@ -15,6 +15,7 @@ model Family {
   guests        Guest[]
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+  inviteSent Boolean @default(false)
 }
 
 model Guest {

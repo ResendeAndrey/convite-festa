@@ -32,8 +32,8 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
 📍 Endereço: ${eventDetails.location}
 📅 Data: 31/05/2025
 🕛 Horário: 12h00
-👔 Traje: Sport fino
-🎁 Presente: 1kg de alimento não perecível
+👔 Traje: Esporte fino
+${eventDetails.gift_description}
 `;
 
 
@@ -81,8 +81,8 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
               </div>
             </p>
 
-            <p><strong>👔 Traje:</strong> Sport fino</p>
-            <p><strong>🎁 Presente:</strong> 1kg de alimento não perecível</p>
+            <p><strong>👔 Traje:</strong> Esporte fino</p>
+            <strong>🎁 {eventDetails.gift_description}</strong>
           </div>
 
 
