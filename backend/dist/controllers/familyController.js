@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.confirmFamilyGuestsHandler = exports.getFamilyByIdHandler = exports.getAllFamiliesHandler = exports.deleteFamilyHandler = void 0;
+exports.updateInviteSentHandler = exports.confirmFamilyGuestsHandler = exports.getFamilyByIdHandler = exports.getAllFamiliesHandler = exports.deleteFamilyHandler = void 0;
 const errorMessage_1 = require("../helpers/errorMessage");
 const prisma_1 = require("../prisma");
 const familyService_1 = require("../services/familyService");
@@ -86,3 +86,20 @@ const confirmFamilyGuestsHandler = (req, res) => __awaiter(void 0, void 0, void 
     }
 });
 exports.confirmFamilyGuestsHandler = confirmFamilyGuestsHandler;
+const updateInviteSentHandler = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    try {
+        const family = yield prisma_1.prisma.family.update({
+            where: { id },
+            data: { inviteSent: true }
+        });
+        return res.status(200).json(family);
+    }
+    catch (error) {
+        const errorHandler = (0, errorMessage_1.getErrorMessage)(error);
+        return res
+            .status(errorHandler.status)
+            .json({ message: errorHandler.message });
+    }
+});
+exports.updateInviteSentHandler = updateInviteSentHandler;

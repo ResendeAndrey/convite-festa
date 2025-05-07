@@ -43,7 +43,8 @@ export const createGuestHandler = async (
     if (!family) {
       family = await createFamilyService({
         name: `Family ${guests[0].name || guests[0].phone}`,
-        totalGuests: guests.length
+        totalGuests: guests.length,
+        inviteSent: false
       });
     }
 

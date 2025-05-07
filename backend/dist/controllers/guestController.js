@@ -35,7 +35,8 @@ const createGuestHandler = (req, res) => __awaiter(void 0, void 0, void 0, funct
         if (!family) {
             family = yield (0, familyService_1.createFamilyService)({
                 name: `Family ${guests[0].name || guests[0].phone}`,
-                totalGuests: guests.length
+                totalGuests: guests.length,
+                inviteSent: false
             });
         }
         // Cria todos os convidados

@@ -8,3 +8,4 @@ exports.familyRoutes = familyRoutes;
 // ROTAS PRIVADAS
 familyRoutes.delete("/:id", familyController_1.deleteFamilyHandler);
 familyRoutes.get("/", familyController_1.getAllFamiliesHandler);
+familyRoutes.patch("/:id/invite", familyController_1.updateInviteSentHandler);
