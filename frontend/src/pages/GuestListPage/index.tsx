@@ -109,7 +109,7 @@ export default function GuestListPage() {
     <SidebarLayout>
       <div className="container mx-auto px-1 sm:px-6 py-10">
         <h1 className="text-2xl font-bold mb-12 text-center sm:text-left">Lista de Convidados</h1>
-
+        <p>Total de convidados encontrados: {guests?.count || 0}</p>
         <div className="p-3">
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:flex-wrap w-full">
