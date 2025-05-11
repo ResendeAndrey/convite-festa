@@ -10,4 +10,5 @@ const familyPublicRoutes = Router();
 familyPublicRoutes.patch("/:id/confirm", confirmFamilyGuestsHandler);
 familyPublicRoutes.get("/:id", getFamilyByIdHandler);
 
+
 export { familyPublicRoutes };

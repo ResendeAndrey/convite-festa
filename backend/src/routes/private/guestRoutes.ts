@@ -2,7 +2,8 @@ import { Router } from "express";
 import {
   createGuestHandler,
   deleteGuestHandler,
-  getGuestsHandler
+  getGuestsHandler,
+  updateGuest
 } from "../../controllers/guestController";
 
 const guestRoutes = Router();
@@ -11,5 +12,6 @@ const guestRoutes = Router();
 guestRoutes.post("/", createGuestHandler);
 guestRoutes.get("/", getGuestsHandler);
 guestRoutes.delete("/:id", deleteGuestHandler);
+guestRoutes.patch("/:id", updateGuest);
 
 export { guestRoutes };

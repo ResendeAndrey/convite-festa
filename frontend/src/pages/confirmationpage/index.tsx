@@ -1,7 +1,7 @@
 
 import { ConfirmPresenceModal } from "@/components/ConfirmDialog";
 import { GuestConfirmationTable } from "@/components/guestConfirmationTable";
-import LoadingSpinner from "@/components/Loader";
+import LoadingConfirmationSpinner from "@/components/LoadingConfirmationPage";
 import { confirmFamily, getFamilyById } from "@/services/familyService";
 
 import { useCallback, useEffect, useState } from "react";
@@ -67,7 +67,7 @@ export function ConfirmPage() {
           <GuestConfirmationTable guests={guests} onConfirm={handleConfirm} loading={loading} reloadGuests={fetchGuests} />
         </div>
       ) : (
-        <LoadingSpinner />
+        <LoadingConfirmationSpinner />
       )}
 
       {openModal && (

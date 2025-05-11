@@ -145,12 +145,12 @@ export const confirmGuestPresenceHandler = async (
   }
 };
 
-export const updateGuestName = async (req: Request, res: Response) => {
+export const updateGuest = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { name } = req.body;
+  const { name, phone } = req.body;
   try {
     const guest = await updateGuestService({
-      data: { name, withoutName: false },
+      data: { name, phone, withoutName: false },
       id
     });
     return res.status(200).json(guest);

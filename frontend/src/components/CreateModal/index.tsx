@@ -124,7 +124,7 @@ const GuestModalForm = ({ isOpen, onClose }: GuestModalFormProps) => {
                 className="border-2 border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
                 fieldName={`guests.${index}.name`}
                 control={control}
-                value={watch('guests')[index]?.name as string}
+
               />
 
               <div className="h-[22px] w-[120px]">
@@ -146,7 +146,7 @@ const GuestModalForm = ({ isOpen, onClose }: GuestModalFormProps) => {
                 className="border-2 border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 "
                 fieldName={`guests.${index}.phone`}
                 control={control}
-                value={watch('guests')[index].phone}
+
               />
 
               {index > 0 && (

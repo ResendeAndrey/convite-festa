@@ -11,7 +11,7 @@ interface InputProps<T extends FieldValues> {
   placeholder?: string;
   fieldName: Path<T>;
   control: Control<T, unknown>
-  value: string
+
   type?: React.InputHTMLAttributes<HTMLInputElement>["type"]
 }
 
@@ -24,7 +24,7 @@ export const Input = <T extends FieldValues>({
   placeholder,
   fieldName,
   control,
-  value,
+
   type = "text",
   ...rest
 }: InputProps<T>) => {
@@ -48,7 +48,7 @@ export const Input = <T extends FieldValues>({
             className
           )}
           placeholder={placeholder}
-          value={value}
+
           type={type}
         />
 
@@ -65,7 +65,7 @@ export const Input = <T extends FieldValues>({
               : "border-gray-300 focus:ring-blue-500",
             className
           )}
-          value={value}
+
 
         />
       )}

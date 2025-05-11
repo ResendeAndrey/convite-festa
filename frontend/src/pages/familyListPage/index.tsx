@@ -1,6 +1,8 @@
 // src/pages/family/familyListPage.tsx
 
 import { DataTable } from '@/components/DataTable';
+import DeleteModalComponent from '@/components/DeleteModalComponent';
+import { EditFamilyModal } from '@/components/EditFamilyModal';
 import FamilyFilter from '@/components/FamilyFilter';
 import InviteModal from '@/components/inviteModal';
 import LoadingSpinner from '@/components/Loader';
@@ -8,8 +10,9 @@ import { SearchInput } from '@/components/SearchInput';
 import SidebarLayout from '@/components/sidebarLayout';
 import { useEventDetails } from '@/contexts/eventDetailsContext';
 import { useFamilyContext } from '@/contexts/familyContext';
-import { sentInvite } from '@/services/familyService';
+import { deleteFamily, sentInvite } from '@/services/familyService';
 import { useCallback, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { columns } from './columns';
 import { FamilyListFilterProps } from './types';
 
@@ -21,6 +24,8 @@ export default function FamilyListPage() {
   const { families, getAllFamilies, loading } = useFamilyContext();
   const { eventDetails } = useEventDetails()
   const [openModal, setOpenModal] = useState(false);
+  const [deleteModal, setOpenDeleteModal] = useState(false);
+  const [openEditFamilyModal, setOpenEditFamilyModal] = useState(false);
   const [selectedFamily, setSelectedFamily] = useState<FamilyData | undefined>();
 
   const [filters, setFilters] = useState<FamilyListFilterProps | undefined>();
@@ -71,6 +76,8 @@ export default function FamilyListPage() {
     *Adicione ao seu calendário:*
     Acesse o link da confirmação acima e baixe o evento na página.
 
+    *Favor confirmar até 24/05*:
+
     Esperamos você para comemorar conosco essa data tão especial! ✨`;
 
 
@@ -90,6 +97,27 @@ export default function FamilyListPage() {
 
   };
 
+  const onClickEditFamily = (family: FamilyData) => {
+    setSelectedFamily(family);
+    setOpenEditFamilyModal(true);
+  }
+  const onClickRemoveFamily = (family: FamilyData) => {
+    setSelectedFamily(family);
+    setOpenDeleteModal(true);
+  }
+
+  const onRemoveFamily = async () => {
+    try {
+      await deleteFamily(selectedFamily?.id as string).then(() => getAllFamilies());
+      toast.success("Familia removida com sucesso.");
+
+      setOpenDeleteModal(false);
+    } catch (err) {
+      toast.error("Falha ao remover familia.");
+      console.log(err, 'err')
+    }
+  }
+
   return (
     <SidebarLayout>
       <div className="container mx-auto py-10">
@@ -107,7 +135,7 @@ export default function FamilyListPage() {
             <LoadingSpinner />
           ) : (
             <DataTable
-              columns={columns(handleOpenInviteModal)}
+              columns={columns(handleOpenInviteModal, onClickEditFamily, onClickRemoveFamily)}
               data={families}
               onChangePage={(page) => getAllFamilies({ page })}
               currentPage={families.page || 1}
@@ -118,6 +146,8 @@ export default function FamilyListPage() {
         </div>
       </div>
       {openModal && selectedFamily && <InviteModal family={selectedFamily} isOpen={openModal} onClose={() => setOpenModal(false)} handleSubmit={handleSendInvite} />}
+      {openEditFamilyModal && selectedFamily && <EditFamilyModal family={selectedFamily} isOpen={openEditFamilyModal} onClose={() => setOpenEditFamilyModal(false)} reloadFamilies={getAllFamilies} />}
+      {deleteModal && selectedFamily && <DeleteModalComponent isOpen={deleteModal} onClose={() => setOpenDeleteModal(false)} onDelete={onRemoveFamily} name={selectedFamily.name as string} />}
     </SidebarLayout>
   );
 }

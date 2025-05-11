@@ -100,3 +100,20 @@ export const updateInviteSentHandler = async (req: Request, res: Response) => {
       .json({ message: errorHandler.message });
   }
 };
+
+export const updateFamilyController = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  try {
+    const family = await prisma.family.update({
+      where: { id },
+      data: { name }
+    });
+    return res.status(200).json(family);
+  } catch (error) {
+    const errorHandler = getErrorMessage(error);
+    return res
+      .status(errorHandler.status)
+      .json({ message: errorHandler.message });
+  }
+};

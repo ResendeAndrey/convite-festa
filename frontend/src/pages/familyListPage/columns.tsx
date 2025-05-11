@@ -5,7 +5,7 @@
 import { Button } from "@/components/Button";
 import { ColumnDef } from "@tanstack/react-table";
 
-export const columns = (handleOpenInviteModal: (family: FamilyData) => void) => {
+export const columns = (handleOpenInviteModal: (family: FamilyData) => void, editFamily: (family: FamilyData) => void, removeFamily: (family: FamilyData) => void) => {
   return [
     {
       accessorKey: "name",
@@ -30,7 +30,13 @@ export const columns = (handleOpenInviteModal: (family: FamilyData) => void) => 
     {
       accessorKey: "actions",
       header: "Ações",
-      cell: ({ row }) => <Button className="w-50 bg-gray-100 text-black font-semibold hover:bg-gray-200 rounded-md shadow" onClick={() => handleOpenInviteModal(row.original)}> Enviar Convite </Button>,
+      cell: ({ row }) =>
+        <div className="flex gap-2">
+          <Button className="  bg-amber-100 text-black font-semibold hover:bg-amber-200 rounded-md shadow" onClick={() => handleOpenInviteModal(row.original)}> Enviar Convite </Button>
+          <Button className="  bg-gray-100 text-black font-semibold hover:bg-gray-200 rounded-md shadow" onClick={() => editFamily(row.original)}> Editar Família </Button>
+          <Button className="  bg-red-100 text-black font-semibold hover:bg-red-200 rounded-md shadow" onClick={() => removeFamily(row.original)}> Excluir Família </Button>
+        </div>
+      ,
     }
   ] as ColumnDef<FamilyData>[]
 };

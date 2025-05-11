@@ -27,3 +27,15 @@ export const sentInvite = async (familyId: string) => {
   const response = await api.patch(`/families/${familyId}/invite`);
   return response;
 };
+
+export const updateFamily = async (familyId: string, familyName: string) => {
+  const response = await api.patch(`/families/${familyId}`, {
+    name: familyName
+  });
+  return response.data;
+};
+
+export const deleteFamily = async (familyId: string) => {
+  const response = await api.delete(`/families/${familyId}`);
+  return response.data;
+};

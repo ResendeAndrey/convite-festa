@@ -23,3 +23,13 @@ export const confirmGuest = async (guestId: number) => {
   const response = await api.post(`/guests/${guestId}/confirm`);
   return response.data;
 };
+
+export const updateGuest = async (guestId: string, guest: GuestData) => {
+  const response = await api.patch(`/guests/${guestId}`, guest);
+  return response.data;
+};
+
+export const deleteGuest = async (guestId: string) => {
+  const response = await api.delete(`/guests/${guestId}`);
+  return response.data;
+};

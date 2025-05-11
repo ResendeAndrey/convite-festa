@@ -6,11 +6,14 @@ import FamilyFilter from '@/components/FamilyFilter';
 import { SearchInput } from '@/components/SearchInput';
 
 import { Button } from '@/components/Button';
+import DeleteModalComponent from '@/components/DeleteModalComponent';
+import { EditGuestModal } from '@/components/EditGuestModal';
 import LoadingSpinner from '@/components/Loader';
 import SidebarLayout from '@/components/sidebarLayout';
 import { useFamilyContext } from '@/contexts/familyContext';
-import { fetchGuests } from '@/services/guestService';
+import { deleteGuest, fetchGuests } from '@/services/guestService';
 import { useCallback, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { DataTable } from '../../components/DataTable';
 import { columns } from './columns'; // Arquivo com definição das colunas da tabela
 import { GuestListFilterProps } from './types';
@@ -20,6 +23,9 @@ import { GuestListFilterProps } from './types';
 export default function GuestListPage() {
   const [guests, setGuests] = useState<DataResponse<GuestData[]>>({} as DataResponse<GuestData[]>);
   const [openModal, setOpenModal] = useState(false);
+  const [editModal, setOpenEditModal] = useState(false);
+  const [deleteModal, setOpenDeleteModal] = useState(false);
+  const [selectedGuest, setSelectedGuest] = useState<GuestData | undefined>();
   const { families, getAllFamilies } = useFamilyContext()
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState<GuestListFilterProps>({} as GuestListFilterProps);
@@ -76,6 +82,28 @@ export default function GuestListPage() {
     setFilters(prev => ({ ...prev, search }))
   }, []);
 
+  const onClickEdit = (guest: GuestData) => {
+    setSelectedGuest(guest);
+
+    setOpenEditModal(true)
+  };
+
+  const onClickDelete = (guest: GuestData) => {
+    setSelectedGuest(guest);
+    setOpenDeleteModal(true)
+  };
+
+  const onRemoveGuest = async () => {
+    try {
+      await deleteGuest(selectedGuest?.id as string).then(() => getGuests());
+      toast.success("Convidado removido com sucesso.");
+
+      setOpenDeleteModal(false);
+    } catch (err) {
+      toast.error("Falha ao removido convidado.");
+      console.log(err, 'err')
+    }
+  }
 
   return (
     <SidebarLayout>
@@ -109,7 +137,7 @@ export default function GuestListPage() {
             <LoadingSpinner />
           ) : (
             <DataTable
-              columns={columns}
+              columns={columns(onClickEdit, onClickDelete)}
               data={guests}
               onChangePage={(page) => getGuests({ page })}
               currentPage={guests.page || 1}
@@ -127,6 +155,10 @@ export default function GuestListPage() {
           }}
         />
       </div>
+
+      {editModal && selectedGuest && <EditGuestModal isOpen={editModal} onClose={() => setOpenEditModal(false)} guest={selectedGuest} reloadGuests={getGuests} />}
+
+      {deleteModal && selectedGuest && <DeleteModalComponent isOpen={deleteModal} onClose={() => setOpenDeleteModal(false)} onDelete={onRemoveGuest} name={selectedGuest.name as string} />}
     </SidebarLayout>
   );
 }

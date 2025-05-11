@@ -24,7 +24,6 @@ export default function LoginPage() {
   const {
     control,
     handleSubmit,
-    watch,
     formState: { errors, isSubmitting },
   } = useForm<LoginForm>({
     resolver: zodResolver(loginSchema),
@@ -56,7 +55,7 @@ export default function LoginPage() {
             infoText={errors.email?.message}
             control={control}
             fieldName="email"
-            value={watch("email")}
+
           />
 
           <Input
@@ -66,7 +65,7 @@ export default function LoginPage() {
             infoText={errors.password?.message}
             control={control}
             fieldName="password"
-            value={watch("password")}
+
             type={"password"}
           />
 
