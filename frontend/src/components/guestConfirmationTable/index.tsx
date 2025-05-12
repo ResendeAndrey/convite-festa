@@ -24,7 +24,7 @@ export function GuestConfirmationTable({ guests, onConfirm, loading, reloadGuest
   const handleNameSubmit = async (id: string) => {
     setIsSubmitting(true);
     try {
-      await api.patch(`/guests/${id}`, { name: names[id] });
+      await api.patch(`/guests/${id}/guest-name`, { name: names[id] });
       reloadGuests()
 
     } catch (error) {

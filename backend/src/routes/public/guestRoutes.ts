@@ -1,9 +1,13 @@
 import { Router } from "express";
-import { confirmGuestPresenceHandler } from "../../controllers/guestController";
+import {
+  confirmGuestPresenceHandler,
+  updateGuestName
+} from "../../controllers/guestController";
 
 const guestPublicRoutes = Router();
 
 // ROTA PÚBLICA
 guestPublicRoutes.patch("/:id/confirm", confirmGuestPresenceHandler);
+guestPublicRoutes.patch("/:id/guest-name", updateGuestName);
 
 export { guestPublicRoutes };

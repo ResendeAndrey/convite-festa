@@ -162,3 +162,21 @@ export const updateGuest = async (req: Request, res: Response) => {
       .json({ message: errorHandler.message });
   }
 };
+
+export const updateGuestName = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  try {
+    const guest = await updateGuestService({
+      data: { name, withoutName: false },
+      id
+    });
+    return res.status(200).json(guest);
+  } catch (error) {
+    console.error(error);
+    const errorHandler = getErrorMessage(error);
+    return res
+      .status(errorHandler.status)
+      .json({ message: errorHandler.message });
+  }
+};
