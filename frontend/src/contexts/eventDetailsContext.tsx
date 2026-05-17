@@ -29,7 +29,7 @@ export const EventDetailsProvider: React.FC<{ children: React.ReactNode }> = ({
     location: "R. Secundaria, 109 - Parque Andiara, Pedro Leopoldo - MG" + " (Spaço's Eventos)",
     startDate: "20260613T120000",
     endDate: "20260613T160000",
-    gift_description: "Sua presença é o nosso maior presente! Caso deseje presentear, pedimos, por gentileza, fraldas geriátricas para doação a[] uma instituição de caridade."
+    gift_description: "Sua presença é o nosso maior presente! Caso deseje presentear, pedimos, por gentileza, fraldas geriátricas para doação a uma instituição de caridade."
   };
 
   const calendarContent = `BEGIN:VCALENDAR

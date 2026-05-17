@@ -10,23 +10,21 @@ import { toast } from "react-toastify";
 
 function InviteSplash({ onConfirm }: { onConfirm: () => void }) {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-end bg-black relative overflow-hidden">
-      <img
-        src="/convite.jpg"
-        alt="Convite"
-        className="absolute inset-0 w-full h-full object-cover object-center"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-
-      <div className="relative z-10 w-full flex justify-center pb-16 px-6">
+    <div className="min-h-screen flex items-center justify-center bg-pink-50 px-4 py-10">
+      <div className="w-full max-w-sm flex flex-col items-center gap-6">
+        <img
+          src="/conviteTueta.png"
+          alt="Convite"
+          className="w-full rounded-2xl shadow-2xl"
+        />
         <button
           onClick={onConfirm}
           className="
-            w-full max-w-sm
+            w-full
             bg-pink-500 text-white
             text-xl font-bold
             py-4 rounded-2xl
-            shadow-[0_0_30px_rgba(236,72,153,0.7)]
+            shadow-[0_0_30px_rgba(236,72,153,0.6)]
             animate-pulse
             hover:animate-none hover:bg-pink-600 hover:scale-105
             transition-all duration-200
