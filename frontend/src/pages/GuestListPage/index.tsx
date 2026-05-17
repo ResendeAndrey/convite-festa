@@ -127,7 +127,7 @@ export default function GuestListPage() {
 
             <Button
               onClick={() => setOpenModal(true)}
-              className="bg-amber-500 hover:bg-amber-600 text-white rounded-md px-4 py-2 w-full sm:w-auto lg:w-50"
+              className="bg-pink-500 hover:bg-pink-600 text-white rounded-md px-4 py-2 w-full sm:w-auto lg:w-50"
             >
               Novo convidado
             </Button>

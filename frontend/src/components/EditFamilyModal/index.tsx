@@ -71,7 +71,7 @@ export function EditFamilyModal({
           <Button
             type="submit"
             disabled={isSubmitting}
-            className=" w-50 mt-4 bg-amber-500 hover:bg-amber-600 text-white p-2 rounded-md"
+            className=" w-50 mt-4 bg-pink-500 hover:bg-pink-600 text-white p-2 rounded-md"
           >
             {isSubmitting ? "Salvando..." : "Salvar"}
           </Button>

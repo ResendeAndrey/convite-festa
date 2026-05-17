@@ -39,3 +39,8 @@ export const deleteFamily = async (familyId: string) => {
   const response = await api.delete(`/families/${familyId}`);
   return response.data;
 };
+
+export const createFamily = async (data: Pick<FamilyData, 'name' | 'totalGuests'>) => {
+  const response = await api.post<FamilyData>("/families", data);
+  return response.data;
+};

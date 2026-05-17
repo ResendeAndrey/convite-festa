@@ -24,18 +24,18 @@ export const EventDetailsProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const eventDetails = {
-    title: "60 anos de casamento de Maria José e Tunico",
+    title: "90 anos de Maria Antonieta (Tuêta)",
     description: "Comemoração especial com amigos e família.",
-    location: "R. Nossa Sra. do Rosário, 1599 - Espraiado, Pedro Leopoldo - MG" + " (Vera Cruz de Minas)",
-    startDate: "20250531T120000",
-    endDate: "20250531T160000",
-    gift_description: "Sua presença é o nosso maior presente! Caso deseje presentear, pedimos, por gentileza, 2 kg de alimentos não perecíveis, que serão destinados a uma causa solidária"
+    location: "R. Secundaria, 109 - Parque Andiara, Pedro Leopoldo - MG" + " (Spaço's Eventos)",
+    startDate: "20260613T120000",
+    endDate: "20260613T160000",
+    gift_description: "Sua presença é o nosso maior presente! Caso deseje presentear, pedimos, por gentileza, fraldas geriátricas para doação a[] uma instituição de caridade."
   };
 
   const calendarContent = `BEGIN:VCALENDAR
   VERSION:2.0
   BEGIN:VEVENT
-  SUMMARY:Festa Maria Jose e Tunico
+  SUMMARY:Festa Maria Antonieta (Tuêta)
   DTSTART:${eventDetails.startDate}
   DTEND:${eventDetails.endDate}
   LOCATION:${eventDetails.location}
