@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {
+  createFamilyHandler,
   deleteFamilyHandler,
   getAllFamiliesHandler,
   updateFamilyController,
@@ -9,6 +10,7 @@ import {
 const familyRoutes = Router();
 
 // ROTAS PRIVADAS
+familyRoutes.post("/", createFamilyHandler);
 familyRoutes.delete("/:id", deleteFamilyHandler);
 familyRoutes.get("/", getAllFamiliesHandler);
 familyRoutes.patch("/:id/invite", updateInviteSentHandler);

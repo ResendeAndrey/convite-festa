@@ -81,7 +81,7 @@ export function GuestConfirmationTable({ guests, onConfirm, loading, reloadGuest
                     <button
                       onClick={() => handleNameSubmit(guest.id as string)}
                       disabled={isSubmitting || !names[guest.id as string]?.trim()}
-                      className="bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600 disabled:opacity-50"
+                      className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 disabled:opacity-50"
                     >
                       Confirmar
                     </button>

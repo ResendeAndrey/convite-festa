@@ -43,9 +43,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-amber-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-pink-50 px-4">
       <div className="w-full max-w-md bg-white shadow-xl rounded-xl p-8">
-        <h2 className="text-2xl font-bold mb-6 text-center text-amber-600">Acessar sistema</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-pink-600">Acessar sistema</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <Input
@@ -72,7 +72,7 @@ export default function LoginPage() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-md transition"
+            className="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-md transition"
           >
             {isSubmitting ? "Entrando..." : "Entrar"}
           </Button>
