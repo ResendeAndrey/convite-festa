@@ -1,7 +1,7 @@
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
-export function exportTableToPDF<T>({
+export function exportTableToPDF<T extends Record<string, any>>({
   data,
   fileName = "lista-convidados.pdf"
 }: {
@@ -19,7 +19,7 @@ export function exportTableToPDF<T>({
         : "";
     const familia =
       item && typeof item === "object" && "family" in item
-        ? String(item["family"]?.name as any).replace("Family", "")
+        ? String(item["family"]?.name).replace("Family", "")
         : "";
     const checkbox = "";
 
@@ -36,7 +36,7 @@ export function exportTableToPDF<T>({
   });
 
   // Depois pega o total de páginas
-  const pageCount = doc.internal.getNumberOfPages();
+  const pageCount = doc.internal.pages.length;
 
   // Muda para última página
   doc.setPage(pageCount);
