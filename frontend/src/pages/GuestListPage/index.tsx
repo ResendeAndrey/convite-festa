@@ -37,7 +37,7 @@ export default function GuestListPage() {
     const paramsWithDefaults: GetAllFamiliesParams = {
       ...params,
       page: params?.page || 1,
-      limit: params?.limit || 100,
+      limit: params?.limit || 30,
     }
     setLoading(true);
     try {
