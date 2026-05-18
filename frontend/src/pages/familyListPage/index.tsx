@@ -2,6 +2,7 @@
 
 import { DataTable } from '@/components/DataTable';
 import DeleteModalComponent from '@/components/DeleteModalComponent';
+import { CreateFamilyModal } from '@/components/CreateFamilyModal';
 import { EditFamilyModal } from '@/components/EditFamilyModal';
 import FamilyFilter from '@/components/FamilyFilter';
 import InviteModal from '@/components/inviteModal';
@@ -26,6 +27,7 @@ export default function FamilyListPage() {
   const [openModal, setOpenModal] = useState(false);
   const [deleteModal, setOpenDeleteModal] = useState(false);
   const [openEditFamilyModal, setOpenEditFamilyModal] = useState(false);
+  const [openCreateFamilyModal, setOpenCreateFamilyModal] = useState(false);
   const [selectedFamily, setSelectedFamily] = useState<FamilyData | undefined>();
 
   const [filters, setFilters] = useState<FamilyListFilterProps | undefined>();
@@ -59,15 +61,15 @@ export default function FamilyListPage() {
 
     const message = `*Olá, ${renderFamilyName()}!* 🎉
 
-    Você está convidado para a comemoração de *60 anos de casados* de *Maria José e Tunico*!
+    Você está convidado para a comemoração de *90 anos* de *Maria Antonieta (Tuêta)*!
 
     *Confirme sua presença:*
     ${import.meta.env.VITE_APP_URL}/families/${data.familyId}/confirmation
 
     *Endereço:*
-    [${eventDetails.location}](https://waze.com/ul?q=${encodeURIComponent(eventDetails.location)})  (Vera Cruz de Minas)
+    [${eventDetails.location}](https://waze.com/ul?q=${encodeURIComponent(eventDetails.location)})  (Spaço's Eventos)
 
-    *Data:* 31/05/2025
+    *Data:* 13/06/2026
     *Horário:* 12h00
     *Traje:* Esporte fino
 
@@ -76,7 +78,7 @@ export default function FamilyListPage() {
     *Adicione ao seu calendário:*
     Acesse o link da confirmação acima e baixe o evento na página.
 
-    *Favor confirmar até 24/05*:
+    *Favor confirmar até 31/06*:
 
     Esperamos você para comemorar conosco essa data tão especial! ✨`;
 
@@ -121,7 +123,15 @@ export default function FamilyListPage() {
   return (
     <SidebarLayout>
       <div className="container mx-auto py-10">
-        <h1 className="text-2xl font-bold mb-12 text-center lg:text-left">Lista de Famílias</h1>
+        <div className="flex items-center justify-between mb-12">
+          <h1 className="text-2xl font-bold text-center lg:text-left">Lista de Famílias</h1>
+          <button
+            onClick={() => setOpenCreateFamilyModal(true)}
+            className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-md text-sm font-medium transition"
+          >
+            + Nova Família
+          </button>
+        </div>
 
         <div className="p-3">
           <div className="flex justify-between items-center">
@@ -148,6 +158,7 @@ export default function FamilyListPage() {
       {openModal && selectedFamily && <InviteModal family={selectedFamily} isOpen={openModal} onClose={() => setOpenModal(false)} handleSubmit={handleSendInvite} />}
       {openEditFamilyModal && selectedFamily && <EditFamilyModal family={selectedFamily} isOpen={openEditFamilyModal} onClose={() => setOpenEditFamilyModal(false)} reloadFamilies={getAllFamilies} />}
       {deleteModal && selectedFamily && <DeleteModalComponent isOpen={deleteModal} onClose={() => setOpenDeleteModal(false)} onDelete={onRemoveFamily} name={selectedFamily.name as string} />}
+      <CreateFamilyModal isOpen={openCreateFamilyModal} onClose={() => setOpenCreateFamilyModal(false)} reloadFamilies={getAllFamilies} />
     </SidebarLayout>
   );
 }

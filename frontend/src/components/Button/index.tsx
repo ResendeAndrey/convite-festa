@@ -9,7 +9,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded  disabled:opacity-50 disabled:cursor-not-allowed transition w-full flex items-center justify-center",
+          "bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded  disabled:opacity-50 disabled:cursor-not-allowed transition w-full flex items-center justify-center",
           className
         )}
         {...props}

@@ -167,7 +167,7 @@ const GuestModalForm = ({ isOpen, onClose }: GuestModalFormProps) => {
         <Button
           type="button"
           onClick={() => append({ name: "", phone: "", withoutName: false })}
-          className="bg-amber-500 hover:bg-amber-600 text-white rounded-md max-w-fit p-3"
+          className="bg-pink-500 hover:bg-pink-600 text-white rounded-md max-w-fit p-3"
         >
           + Adicionar Convidado
         </Button>
@@ -176,7 +176,7 @@ const GuestModalForm = ({ isOpen, onClose }: GuestModalFormProps) => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className=" w-50 mt-4 bg-amber-500 hover:bg-amber-600 text-white p-2 rounded-md"
+            className=" w-50 mt-4 bg-pink-500 hover:bg-pink-600 text-white p-2 rounded-md"
           >
             {isSubmitting ? "Salvando..." : "Salvar"}
           </Button>

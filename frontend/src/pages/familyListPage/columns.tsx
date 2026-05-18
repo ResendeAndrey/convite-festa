@@ -32,7 +32,7 @@ export const columns = (handleOpenInviteModal: (family: FamilyData) => void, edi
       header: "Ações",
       cell: ({ row }) =>
         <div className="flex gap-2">
-          <Button className="  bg-amber-100 text-black font-semibold hover:bg-amber-200 rounded-md shadow" onClick={() => handleOpenInviteModal(row.original)}> Enviar Convite </Button>
+          <Button className="  bg-pink-100 text-black font-semibold hover:bg-pink-200 rounded-md shadow" onClick={() => handleOpenInviteModal(row.original)}> Enviar Convite </Button>
           <Button className="  bg-gray-100 text-black font-semibold hover:bg-gray-200 rounded-md shadow" onClick={() => editFamily(row.original)}> Editar Família </Button>
           <Button className="  bg-red-100 text-black font-semibold hover:bg-red-200 rounded-md shadow" onClick={() => removeFamily(row.original)}> Excluir Família </Button>
         </div>

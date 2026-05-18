@@ -28,9 +28,9 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
 
 
   const qrCodeData = `
-🎉 60 anos de casado Maria José e Tunico
+🎉 90 anos de Maria Antonieta (Tuêta)
 📍 Endereço: ${eventDetails.location}
-📅 Data: 31/05/2025
+📅 Data: 13/06/2026
 🕛 Horário: 12h00
 👔 Traje: Esporte fino
 ${eventDetails.gift_description}
@@ -56,7 +56,7 @@ ${eventDetails.gift_description}
           </p>
 
           <div className="text-zinc-700 text-sm text-left mt-6 space-y-1">
-            <p><strong>📅 Data:</strong> 31 de Maio de 2025</p>
+            <p><strong>📅 Data:</strong> 13 de Junho de 2026</p>
             <p><strong>🕛 Horário:</strong> 12:00 horas</p>
             <p className="flex flex-col gap-1">
               <strong>📍 Endereço: </strong>

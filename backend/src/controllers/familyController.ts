@@ -2,10 +2,25 @@ import { Request, Response } from "express";
 import { getErrorMessage } from "../helpers/errorMessage";
 import { prisma } from "../prisma";
 import {
+  createFamilyService,
   deleteFamilyService,
   getAllFamilyService,
   getFamilyByIdService
 } from "../services/familyService";
+
+export const createFamilyHandler = async (req: Request, res: Response) => {
+  try {
+    const { name, totalGuests } = req.body;
+    if (!name || totalGuests == null) {
+      return res.status(400).json({ message: "Nome e total de convidados são obrigatórios" });
+    }
+    const family = await createFamilyService({ name, totalGuests, inviteSent: false });
+    return res.status(201).json(family);
+  } catch (error) {
+    const errorHandler = getErrorMessage(error);
+    return res.status(errorHandler.status).json({ message: errorHandler.message });
+  }
+};
 
 export const deleteFamilyHandler = async (req: Request, res: Response) => {
   try {

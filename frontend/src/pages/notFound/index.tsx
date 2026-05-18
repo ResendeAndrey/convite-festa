@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-amber-50">
+    <div className="min-h-screen flex items-center justify-center bg-pink-50">
       <div className="text-center bg-white p-8 rounded-lg shadow-xl w-96">
         <h1 className="text-6xl font-bold text-red-500">404</h1>
         <h2 className="text-2xl font-semibold text-gray-800 mt-4">
@@ -14,7 +14,7 @@ const NotFound = () => {
         <div className="mt-6">
           <Link
             to="/"
-            className="text-white bg-amber-500 hover:bg-amber-700 font-semibold py-2 px-6 rounded-lg transition duration-300"
+            className="text-white bg-pink-500 hover:bg-pink-700 font-semibold py-2 px-6 rounded-lg transition duration-300"
           >
             Voltar para a Página Inicial
           </Link>
