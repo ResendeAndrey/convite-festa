@@ -48,7 +48,6 @@ export const Input = <T extends FieldValues>({
             className
           )}
           placeholder={placeholder}
-
           type={type}
         />
 
