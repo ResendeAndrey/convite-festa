@@ -4,7 +4,7 @@ import { GuestConfirmationTable } from "@/components/guestConfirmationTable";
 import LoadingConfirmationSpinner from "@/components/LoadingConfirmationPage";
 import { confirmFamily, getFamilyById } from "@/services/familyService";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -16,6 +16,8 @@ export function ConfirmPage() {
   const [guests, setGuests] = useState<GuestData[] | undefined>();
   const [loading, setLoading] = useState(false);
   const allConfirmed = guests?.every((guest) => guest.confirmed);
+  const guestConfirmed = useMemo(() => localStorage.getItem('guestConfirmed') === 'true', []);
+
 
 
   const fetchGuests = useCallback(async () => {
@@ -34,10 +36,10 @@ export function ConfirmPage() {
   }, [fetchGuests]);
 
   useEffect(() => {
-    if (allConfirmed) {
+    if (allConfirmed || guestConfirmed) {
       setOpenModal(true);
     }
-  }, [allConfirmed])
+  }, [allConfirmed, guestConfirmed]);
 
   const handleConfirm = useCallback(async (selectedIds: string[]) => {
     try {
@@ -53,6 +55,7 @@ export function ConfirmPage() {
       setLoading(false);
       setOpenModal(true)
       fetchGuests()
+      localStorage.setItem('guestConfirmed', JSON.stringify('true'));
     }
   }, [fetchGuests, id]);
 
