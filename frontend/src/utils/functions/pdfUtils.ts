@@ -56,6 +56,4 @@ export function exportTableToPDF<T>({
 
   // Salva o arquivo
   doc.save(fileName);
-
-  doc.save(fileName);
 }
