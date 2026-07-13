@@ -12,6 +12,7 @@ import LoadingSpinner from '@/components/Loader';
 import SidebarLayout from '@/components/sidebarLayout';
 import { useFamilyContext } from '@/contexts/familyContext';
 import { deleteGuest, fetchGuests } from '@/services/guestService';
+import { exportTableToPDF } from '@/utils/functions/pdfUtils';
 import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { DataTable } from '../../components/DataTable';
@@ -133,6 +134,12 @@ export default function GuestListPage() {
             </Button>
           </div>
 
+          <div>
+            <Button onClick={() => exportTableToPDF({ data: guests.data })}>
+              Exportar PDF
+            </Button>
+          </div>
+
           {loading || !guests.data ? (
             <LoadingSpinner />
           ) : (
@@ -159,6 +166,6 @@ export default function GuestListPage() {
       {editModal && selectedGuest && <EditGuestModal isOpen={editModal} onClose={() => setOpenEditModal(false)} guest={selectedGuest} reloadGuests={getGuests} />}
 
       {deleteModal && selectedGuest && <DeleteModalComponent isOpen={deleteModal} onClose={() => setOpenDeleteModal(false)} onDelete={onRemoveGuest} name={selectedGuest.name as string} />}
-    </SidebarLayout>
+    </SidebarLayout >
   );
 }
