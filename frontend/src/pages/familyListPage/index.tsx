@@ -69,7 +69,7 @@ export default function FamilyListPage() {
     *Endereço:*
     [${eventDetails.location}](https://waze.com/ul?q=${encodeURIComponent(eventDetails.location)})  (Spaço's Eventos)
 
-    *Data:* 13/06/2026
+    *Data:* 02/08/2026
     *Horário:* 12h00
     *Traje:* Esporte fino
 
