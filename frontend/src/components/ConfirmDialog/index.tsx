@@ -30,7 +30,7 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
   const qrCodeData = `
 🎉 90 anos de Maria Antonieta (Tuêta)
 📍 Endereço: ${eventDetails.location}
-📅 Data: 13/06/2026
+📅 Data: 02/08/2026
 🕛 Horário: 12h00
 👔 Traje: Esporte fino
 ${eventDetails.gift_description}
