@@ -13,7 +13,7 @@ function InviteSplash({ onConfirm }: { onConfirm: () => void }) {
     <div className="min-h-screen flex items-center justify-center bg-pink-50 px-4 py-10">
       <div className="w-full max-w-sm flex flex-col items-center gap-6">
         <img
-          src="/conviteTueta.png"
+          src="/conviteTueta1.png"
           alt="Convite"
           className="w-full rounded-2xl shadow-2xl"
         />
