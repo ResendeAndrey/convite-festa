@@ -30,7 +30,7 @@ export function ConfirmPresenceModal({ guestName, onOpen, onClose }: ConfirmPres
   const qrCodeData = `
 🎉 90 anos de Maria Antonieta (Tuêta)
 📍 Endereço: ${eventDetails.location}
-📅 Data: 02/08/2026
+📅 Data: 27/09/2026
 🕛 Horário: 12h00
 👔 Traje: Esporte fino
 ${eventDetails.gift_description}
@@ -56,7 +56,7 @@ ${eventDetails.gift_description}
           </p>
 
           <div className="text-zinc-700 text-sm text-left mt-6 space-y-1">
-            <p><strong>📅 Data:</strong> 13 de Junho de 2026</p>
+            <p><strong>📅 Data:</strong> 27 de Setembro de 2026 (domingo)</p>
             <p><strong>🕛 Horário:</strong> 12:00 horas</p>
             <p className="flex flex-col gap-1">
               <strong>📍 Endereço: </strong>
@@ -91,10 +91,10 @@ ${eventDetails.gift_description}
               name={eventDetails.title}
               options={['Apple', 'Google', 'Yahoo']}
               location={eventDetails.location}
-              startDate="2025-05-31"
-              endDate="2025-05-31"
-              startTime="10:15"
-              endTime="18:30"
+              startDate="2026-09-27"
+              endDate="2026-09-27"
+              startTime="12:00"
+              endTime="16:00"
               timeZone="America/Sao_Paulo"
               label="Adicionar ao calendário"
             ></AddToCalendarButton>

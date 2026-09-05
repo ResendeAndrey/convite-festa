@@ -69,7 +69,7 @@ export default function FamilyListPage() {
     *Endereço:*
     [${eventDetails.location}](https://waze.com/ul?q=${encodeURIComponent(eventDetails.location)})  (Spaço's Eventos)
 
-    *Data:* 02/08/2026
+    *Data:* 27/09/2026 (domingo)
     *Horário:* 12h00
     *Traje:* Esporte fino
 
@@ -78,7 +78,7 @@ export default function FamilyListPage() {
     *Adicione ao seu calendário:*
     Acesse o link da confirmação acima e baixe o evento na página.
 
-    *Favor confirmar até 23/07*:
+    *Favor confirmar até 15/09*:
 
     Esperamos você para comemorar conosco essa data tão especial! ✨`;
 
