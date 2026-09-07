@@ -78,7 +78,7 @@ export default function FamilyListPage() {
     *Adicione ao seu calendário:*
     Acesse o link da confirmação acima e baixe o evento na página.
 
-    *Favor confirmar até 15/09*:
+    *Favor confirmar até 16/09*:
 
     Esperamos você para comemorar conosco essa data tão especial! ✨`;
 
